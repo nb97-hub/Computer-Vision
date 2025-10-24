@@ -5,10 +5,21 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Debug with MSVC",
+            "name": "Debug ROI MSVC",
             "type": "cppvsdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/Debug/ROI1.exe",
+            "program": "${workspaceFolder}/build/Debug/ROI.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Debug MAT MSVC",
+            "type": "cppvsdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/Debug/MAT.exe",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",

@@ -4,6 +4,9 @@
 int main(){
     
     cv::Mat A = cv::imread("robot.png");
+    cv::imshow("Display Original", A);
+    cv::waitKey(0);
+    std::cout << "Press Enter to exit..." << std::endl;
     
     // Dimensions
     int roi_size = 300;                                 // roi = region of interest
@@ -18,12 +21,12 @@ int main(){
     y_start = std::max(0, y_start);
 
     cv::Mat B(A, cv::Rect(x_start, y_start, roi_size, roi_size));
-    cv::imshow("Display Original", A);
+    cv::imshow("Display ROI", B);
     cv::waitKey(0);
     std::cout << "Press Enter to exit..." << std::endl;
 
-
-    cv::imshow("Display ROI", B);
+    cv::Mat C = A(cv::Range::all(), cv::Range(1,40));
+    cv::imshow("Display ROI2", C);
     cv::waitKey(0);
     std::cout << "Press Enter to exit..." << std::endl;
 

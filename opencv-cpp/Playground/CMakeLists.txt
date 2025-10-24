@@ -11,9 +11,9 @@ find_package(OpenCV REQUIRED)
 include_directories(${OpenCV_INCLUDE_DIRS})
 
 # Add executable target
-add_executable(ROI1 ROI.cpp)
-add_executable(ROI2 ROI2.cpp)
+add_executable(ROI ROI.cpp)
+add_executable(MAT Mat.cpp)
 
 # Link OpenCV libraries
-target_link_libraries(ROI1 ${OpenCV_LIBS})
-target_link_libraries(ROI2 ${OpenCV_LIBS})
+target_link_libraries(ROI ${OpenCV_LIBS})
+target_link_libraries(MAT ${OpenCV_LIBS})
