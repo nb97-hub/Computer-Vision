@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.10.0)
-project(ImageFiltering)
+project(EdgeDetection)
 
 # Set the OpenCV directory
 set(OpenCV_DIR "C:/dev/libs/opencv/build/")
@@ -17,7 +17,7 @@ include_directories(${OpenCV_INCLUDE_DIRS})
 # Add executable target
 add_executable(Sobel sobel.cpp)
 add_executable(Laplacian laplacian.cpp)
-add_executable(Canny ccanny.cpp)
+add_executable(Canny canny.cpp)
 
 # Link OpenCV libraries
 target_link_libraries(Sobel ${OpenCV_LIBS})
