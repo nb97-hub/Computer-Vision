@@ -9,6 +9,7 @@
     
 <br><br>
 # Smoothing
+
 ## Gaussian Blur (fuzzy filter)
 Easy to implement, it assigns greater weights to closer pixels following Gaussian distribution.
 #### Pros:
@@ -21,7 +22,7 @@ Easy to implement, it assigns greater weights to closer pixels following Gaussia
 - Bad against "Salt and Pepper" (noise with values equal to 0 or 255 only) noise
 #### Notes:
 - Linear
-<br>
+
 ## Median
 Assigns the median value of the k<sup>2</sup> considered pixels to the central one.
 #### Pros:
@@ -32,11 +33,11 @@ Assigns the median value of the k<sup>2</sup> considered pixels to the central o
 #### Cons:
 - Non-Edge preservation
 - Smoothing*
-- Large filters blur the image details
+- Large filters blur the image details.
 #### Notes:
 - Non-linear
 - To keep the radius small
-<br>
+
 ## Bilateral Filter
 This is basically a fuzzy filter, BUT when computing a value for the central pixel it assign a greater weight to the pixels with similar intensity. In this way the edges are preserved.
 #### Pros:
