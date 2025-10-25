@@ -62,11 +62,11 @@ Basic morphological operations are: Dilation and Erosion.
 
 ## Dilatation
 - Adds pixels to object boundaries, helping to fill gaps and connect broken parts of an object.
-- Expansion or Zoom in.
+- Expansion or Thickning.
 
 ## Erosion
 - Removes pixels from object boundaries, useful for eliminating small noise and disconnecting weakly connected components.
-- Reduction or Zoom out.
+- Reduction or Thining.
 
 ## Opening
 - It's the erosion followed by dilatation.
@@ -79,3 +79,22 @@ Basic morphological operations are: Dilation and Erosion.
 ## Morphological Gradient
 - It's the difference between dilatation and erosion.
 - It is useful for finding the outline of an object.
+    
+<br><br>
+# Scaling
+It is possible and sometimes convinient to **downscale** (or equivalently downsize/downsample/zoom out) or **upscale** (or equivalently upsize/upsample/zoom in) an image. To perform these operations we can use Gaussian pyramids (1<sup>st</sup> order derivative) or Laplacian pyramids (2<sup>nd</sup> order derivative).
+
+Note: when we downsample and then upsample, we are actually blurring, even if the resulting image has the same size of the initial one. Basically, reducing an image
+causes lose of information.
+
+## Downscaling (Gaussian)
+- Combination of two subsequent operations:
+    - Convolution with a Normalized Gaussian Kernel.
+    - Removal of all even-numbered rows and columns.
+- In OpenCV use **pyrDown**.
+
+## Upscaling (Gaussian)
+- Combination of two subsequent operations:
+    - Upsize of the image to twice the original in each dimension. Note that the new even-numbered rows and columns are zero-filled.
+    - Convolution with a Normalized Gaussian Kernel. Same kernel as above but with 4x value elements. 
+- In OpenCV use **pyrUp**.
