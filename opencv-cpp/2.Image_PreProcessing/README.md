@@ -61,9 +61,9 @@ This is basically a fuzzy filter, BUT when computing a value for the central pix
 Basic morphological operations are: Dilation and Erosion.
 - Opening (erosion followed by dilatation) is a well known noise removal operation. Remove small foreground objects while preserving shape of larger ones.
 - Closing (dilatation followed by erosion) is a well known hole filling technique.
-<br>
+
 ## Dilatation
-- Adds pixels to object boundaries, helping to fill gaps and connect broken parts of an object
-<br>
+- Adds pixels to object boundaries, helping to fill gaps and connect broken parts of an object.
+
 ## Erosion
 - Removes pixels from object boundaries, useful for eliminating small noise and disconnecting weakly connected components.
