@@ -97,4 +97,29 @@ causes lose of information.
 - Combination of two subsequent operations:
     - Upsize of the image to twice the original in each dimension. Note that the new even-numbered rows and columns are zero-filled.
     - Convolution with a Normalized Gaussian Kernel. Same kernel as above but with 4x value elements. 
-- In OpenCV use **pyrUp**.
+- In OpenCV use **pyrUp**.    
+
+<br><br>
+# Thresholding
+It is the simplest segmentation method. The separation between objects is due to pixels intensities. The thresholding methods depend on the threshold value (T) and the value to assign to a pixel whether it is greater or smaller compared to T.
+
+Notes: 
+- T             -> threshold value.
+- output(x,y)   -> output image pixel at coordinate (x,y).
+- input(x,y)    -> input image pixel at coordinate (x,y).
+- maxVal        -> max intensity value (255 in case of CV_8UC)
+
+## Threshold Binary
+- **output(x,y) = input(x,y) > T ? maxVal : 0**
+
+## Threshold Binary Inverted
+- **output(x,y) = input(x,y) > T ? 0 : maxVal**
+
+## Threshold Truncate
+- **output(x,y) = input(x,y) > T ? T : input(x,y)**
+
+## Threshold to Zero
+- **output(x,y) = input(x,y) > T ? input(x,y) : 0**
+
+## Threshold to Zero Inverted
+- **output(x,y) = input(x,y) > T ? 0 : input(x,y)**
