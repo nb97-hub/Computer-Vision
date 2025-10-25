@@ -11,7 +11,7 @@ int DELAY_BLUR = 300;
 int MAX_KERNEL_LENGTH = 31;
 
 Mat src; Mat dst;
-char window_name[] = "Smoothing Demo";
+char window_name[] = "Smoothing";
 
 int display_caption( const char* caption );
 int display_dst( int delay );
@@ -20,13 +20,13 @@ int main( int argc, char ** argv )
 {
     namedWindow( window_name, WINDOW_AUTOSIZE );
 
-    const char* filename = argc >=2 ? argv[1] : "lena.jpg";
+    const char* filename = argc >=2 ? argv[1] : "SP_robot.png";
 
     src = imread( samples::findFile( filename ), IMREAD_COLOR );
     if (src.empty())
     {
         printf(" Error opening image\n");
-        printf(" Usage:\n %s [image_name-- default lena.jpg] \n", argv[0]);
+        printf(" Usage:\n %s [image_name] otherwise default is SP_robot.jpg \n", argv[0]);
         return EXIT_FAILURE;
     }
 
@@ -88,9 +88,18 @@ int main( int argc, char ** argv )
         return 0;
     }
 
+    int maxDiameter = 9;
+    int sigmasIncrFactor = 3;
+    int diameter = 1;   // How many pixels the filter takes into account
+    int sigma = 1;      // sigmaColor a pixel in the window is taken into account if its color differs by at most by sigma
+                        // sigmaSpace is the std of the gaussian filter
+
     for ( int i = 1; i < MAX_KERNEL_LENGTH; i = i + 2 )
     {
-        bilateralFilter ( src, dst, 5, 10, 10 );
+        diameter = i <= maxDiameter ? i : maxDiameter;
+        sigma = diameter <= maxDiameter ? i*2 : i*3;
+
+        bilateralFilter ( src, dst, diameter, sigma, sigma);
         if( display_dst( DELAY_BLUR ) != 0 )
         {
             return 0;
