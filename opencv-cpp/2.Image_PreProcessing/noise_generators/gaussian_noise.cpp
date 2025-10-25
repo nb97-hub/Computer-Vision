@@ -1,4 +1,5 @@
 #include <opencv2/opencv.hpp>
+#include <filesystem>
 #include <iostream>
 #include <random>
 
@@ -7,6 +8,23 @@ using namespace std;
 
 #define GAUSSIAN_MEAN   0.0 // Represents the pixels intensity alteration. [0.0 = sum of all the added noise is equal to 0. Average intensity unchanged]
 #define GAUSSIAN_STD    50.0 // Represents the dispersion around the mean. [(5-15) Realistic camera sensor noise. (20-40) Low quality sensor or low illumination conditions.]
+
+string addPrefixToFileName(const std::string& inputPath, const std::string& prefix)
+{
+    namespace fs = filesystem;
+
+    fs::path pathObj(inputPath);
+
+    fs::path directory = pathObj.parent_path();
+    string filename = pathObj.stem().string();
+    string extension = pathObj.extension().string();
+
+    string newFilename = prefix + filename + extension;
+
+    fs::path outputPath = directory / newFilename;
+
+    return outputPath.string();
+}
 
 void addGaussianNoise(Mat& image, double noise_mean, double noise_std, bool toShow=true) {
     // Let's create a mask containing the Gaussian Noise to be added to the image
@@ -41,7 +59,7 @@ int main(int argc, char** argv) {
     Mat noisy = image.clone();
     addGaussianNoise(noisy, noise_mean, noise_std);
 
-    string outputPath = "GNoise_" + inputPath;
+    string outputPath = addPrefixToFileName(inputPath, "GNoise_");
     imwrite(outputPath, noisy);
     cout << "Writing image to path: " << outputPath << endl;
 

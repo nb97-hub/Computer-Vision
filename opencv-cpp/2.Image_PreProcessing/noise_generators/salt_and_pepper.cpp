@@ -1,9 +1,27 @@
 #include <opencv2/opencv.hpp>
+#include <filesystem>
 #include <iostream>
 #include <random>
 
 using namespace cv;
 using namespace std;
+
+string addPrefixToFileName(const std::string& inputPath, const std::string& prefix)
+{
+    namespace fs = filesystem;
+
+    fs::path pathObj(inputPath);
+
+    fs::path directory = pathObj.parent_path();
+    string filename = pathObj.stem().string();
+    string extension = pathObj.extension().string();
+
+    string newFilename = prefix + filename + extension;
+
+    fs::path outputPath = directory / newFilename;
+
+    return outputPath.string();
+}
 
 void addSaltPepperNoise(Mat& image, double amount) {
     RNG rng;
@@ -30,11 +48,11 @@ int main(int argc, char** argv) {
         return -1;
     }
 
-    string path = argv[1];
+    string inputPath = argv[1];
     double amount = 0.02; // percentuale di pixel da alterare
     if (argc >= 3) amount = atof(argv[2]);
 
-    Mat image = imread(path, IMREAD_COLOR);
+    Mat image = imread(inputPath, IMREAD_COLOR);
     if (image.empty()) {
         cout << "Errore: impossibile leggere l'immagine!" << endl;
         return -1;
@@ -43,7 +61,7 @@ int main(int argc, char** argv) {
     Mat noisy = image.clone();
     addSaltPepperNoise(noisy, amount);
 
-    string outputPath = "SP_" + path;
+    string outputPath = addPrefixToFileName(inputPath, "SP_");
     imwrite(outputPath, noisy);
     cout << "Writing image to path: " << outputPath << endl;
 
