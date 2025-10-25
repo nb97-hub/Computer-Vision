@@ -59,11 +59,23 @@ This is basically a fuzzy filter, BUT when computing a value for the central pix
 - Mainly used to process Binary Images.
 - Set of operations that process images based on shapes. Morphological operations apply a structuring element to an input image and generate an output image.
 Basic morphological operations are: Dilation and Erosion.
-- Opening (erosion followed by dilatation) is a well known noise removal operation. Remove small foreground objects while preserving shape of larger ones.
-- Closing (dilatation followed by erosion) is a well known hole filling technique.
 
 ## Dilatation
 - Adds pixels to object boundaries, helping to fill gaps and connect broken parts of an object.
+- Expansion or Zoom in.
 
 ## Erosion
 - Removes pixels from object boundaries, useful for eliminating small noise and disconnecting weakly connected components.
+- Reduction or Zoom out.
+
+## Opening
+- It's the erosion followed by dilatation.
+- Is a well known noise removal operation. Remove small foreground objects while preserving shape of larger ones.
+
+## Closing
+- It's the dilatation followed by erosion.
+- Is a well known hole filling technique.
+
+## Morphological Gradient
+- It's the difference between dilatation and erosion.
+- It is useful for finding the outline of an object.
