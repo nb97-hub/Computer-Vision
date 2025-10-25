@@ -123,3 +123,12 @@ Notes:
 
 ## Threshold to Zero Inverted
 - **output(x,y) = input(x,y) > T ? 0 : input(x,y)**
+
+## Threshold, HSV and inRange
+- HSV is the colorspace model to represent Hue, Saturation and Value.
+- Hue is basically the color type.
+- Therefore is useful to employ HSV when we want to track objects based on their color.
+- **threshold_video.cpp** is an application that allows the user:
+    - To play with the HSV.
+    - To locate a colorspace range in which their object fits.
+    - To track the object very fast (no NN employed) based on its color.
