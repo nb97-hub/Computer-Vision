@@ -4,6 +4,10 @@ project(ImageFiltering)
 # Set the OpenCV directory
 set(OpenCV_DIR "C:/dev/libs/opencv/build/")
 
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+
 # Find OpenCV package
 find_package(OpenCV REQUIRED)
 
@@ -16,8 +20,8 @@ add_executable(Morpho morpho.cpp)
 add_executable(Scaling scaling.cpp)
 add_executable(Threshold threshold.cpp)
 add_executable(VideoThreshold threshold_video_HSV.cpp)
-add_executable(SAP salt_and_pepper.cpp)
-add_executable(GN gaussian_noise.cpp)
+add_executable(SAP "noise_generators/salt_and_pepper.cpp")
+add_executable(GN "noise_generators/gaussian_noise.cpp")
 
 # Link OpenCV libraries
 target_link_libraries(Smoothing ${OpenCV_LIBS})

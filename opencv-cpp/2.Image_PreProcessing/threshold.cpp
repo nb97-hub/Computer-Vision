@@ -33,7 +33,7 @@ static void Threshold_Demo( int, void* )
 
 int main( int argc, char** argv )
 {
-    String imageName("robot.png"); // by default
+    String imageName(".\\images\\robot.png"); // by default
     if (argc > 1)
     {
         imageName = argv[1];

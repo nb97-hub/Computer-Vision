@@ -20,13 +20,13 @@ int main( int argc, char ** argv )
 {
     namedWindow( window_name, WINDOW_AUTOSIZE );
 
-    const char* filename = argc >=2 ? argv[1] : "SP_robot.png";
+    const char* filename = argc >=2 ? argv[1] : ".\\images\\GNoise_robot.png";
 
     src = imread( samples::findFile( filename ), IMREAD_COLOR );
     if (src.empty())
     {
         printf(" Error opening image\n");
-        printf(" Usage:\n %s [image_name] otherwise default is SP_robot.jpg \n", argv[0]);
+        printf(" Usage:\n %s [image_name] otherwise default is .\\images\\GNoise_robot.png \n", argv[0]);
         return EXIT_FAILURE;
     }
 
