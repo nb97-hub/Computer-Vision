@@ -59,8 +59,9 @@ Based on 2<sup>nd</sup> order gradient and zero-crossing localization. The plain
 
 <br>
 
-### Canny Edge Detector
-Multi-stage that implies: 2D Gaussian Blur, 2D Sobel and 1D Laplacian (and some non-linear operations)
+### Canny Edge Detector 
+- Multi-stage algorithm that from **literature** implies: 2D Gaussian Blur, 2D Sobel and 1D Laplacian (and some non-linear operations)
+- Multi-stage algorithm that in **OpenCV library** implies: 2D Gaussian Blur, 2D Sobel, Strength and Direction computation, Non-maximum suppression (candidate edges only), Hysteresis (two thresholds: accepted, rejected, connected?)
 #### Pros:
 - Very Accurate
 - Thin, connected and accurate borders (better than Laplacian)

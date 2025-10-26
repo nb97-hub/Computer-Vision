@@ -18,9 +18,9 @@ include_directories(${OpenCV_INCLUDE_DIRS})
 # Add executable target
 add_executable(Sobel sobel.cpp)
 add_executable(Laplacian laplacian.cpp)
-#add_executable(Canny canny.cpp)
+add_executable(Canny canny.cpp)
 
 # Link OpenCV libraries
 target_link_libraries(Sobel ${OpenCV_LIBS})
 target_link_libraries(Laplacian ${OpenCV_LIBS})
-#target_link_libraries(Canny ${OpenCV_LIBS})
+target_link_libraries(Canny ${OpenCV_LIBS})
