@@ -3,6 +3,7 @@ project(OpenCVExample)
 
 # Set the OpenCV directory
 set(OpenCV_DIR "C:/dev/libs/opencv/build/")
+set(OPENCV_LOG_LEVEL OFF)
 
 # Find OpenCV package
 find_package(OpenCV REQUIRED)
