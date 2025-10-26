@@ -3,6 +3,7 @@ project(EdgeDetection)
 
 # Set the OpenCV directory
 set(OpenCV_DIR "C:/dev/libs/opencv/build/")
+set(OPENCV_LOG_LEVEL OFF)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -17,9 +18,9 @@ include_directories(${OpenCV_INCLUDE_DIRS})
 # Add executable target
 add_executable(Sobel sobel.cpp)
 add_executable(Laplacian laplacian.cpp)
-add_executable(Canny canny.cpp)
+#add_executable(Canny canny.cpp)
 
 # Link OpenCV libraries
 target_link_libraries(Sobel ${OpenCV_LIBS})
 target_link_libraries(Laplacian ${OpenCV_LIBS})
-target_link_libraries(Canny ${OpenCV_LIBS})
+#target_link_libraries(Canny ${OpenCV_LIBS})

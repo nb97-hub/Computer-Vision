@@ -11,7 +11,7 @@ using namespace std;
 #define MAX_KSIZE 4         //1, 3, 5 or 7
 
 const String window_capture_name = "Real-time Video";
-const String window_edges_name = "Identified Edges";
+const String window_edges_name = "Sobel Edges";
 
 int ddepth = CV_16S; // 16bit signed to avoid overflow
 
