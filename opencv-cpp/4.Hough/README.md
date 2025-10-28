@@ -19,8 +19,15 @@ Exploits the same ideas of the algorithm used for lines but adapt it to find cir
 
 ### Hough Gradient
 Composed of two stages:
-- edge detection and finding of possible circle centers.
-- finding of bet radius for each candidate circle center.
+- Edge detection and finding of possible circle centers.
+- Finding of bet radius for each candidate circle center.
 
 ### Hough Gradient ALT
 Variation of HOUGH_GRADIENT to get better accuracy.
+
+## Generalized Hough Transform
+Exploits and expands Hough Transform considerations to general shapes (and objects).
+- Quite useful for object detection tasks and template matching.
+- Basically extracts and memorizes polar features from a template, creates and memorize a table, then tries to match it on your target picture.
+- Is computational and memory demanding. The complecity increases if you try to to add other parameter as Scale and rotation.
+- The Ballard's variant is faster than Guil's one.
