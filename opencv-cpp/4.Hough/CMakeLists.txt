@@ -16,7 +16,7 @@ find_package(OpenCV REQUIRED)
 include_directories(${OpenCV_INCLUDE_DIRS})
 
 # Add executable target
-add_executable(Hough hough.cpp)
+add_executable(HoughL houghLine.cpp)
 
 # Link OpenCV libraries
-target_link_libraries(Hough ${OpenCV_LIBS})
+target_link_libraries(HoughL ${OpenCV_LIBS})

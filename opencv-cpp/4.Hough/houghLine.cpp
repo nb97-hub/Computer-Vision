@@ -11,7 +11,7 @@ int main(int argc, char** argv)
     // Declare the output variables
     Mat dst, cdst, cdstP;
 
-    const char* default_file = "chess.jpg";
+    const char* default_file = "chess2.jpg";
     const char* filename = argc >=2 ? argv[1] : default_file;
 
     // Loads an image
@@ -50,11 +50,12 @@ int main(int argc, char** argv)
 
     // Probabilistic Line Transform
     vector<Vec4i> linesP; // will hold the results of the detection
-    HoughLinesP(dst, linesP, 1, CV_PI/180, 50, 50, 10 ); // runs the actual detection
+    HoughLinesP(dst, linesP, 1, CV_PI/180, 100, 50, 10 ); // runs the actual detection
     // Draw the lines
     for( size_t i = 0; i < linesP.size(); i++ )
     {
         Vec4i l = linesP[i];
+
         line( cdstP, Point(l[0], l[1]), Point(l[2], l[3]), Scalar(0,0,255), 3, LINE_AA);
     }
 
